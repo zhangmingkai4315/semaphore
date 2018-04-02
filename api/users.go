@@ -6,10 +6,10 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 	"golang.org/x/crypto/bcrypt"
 )
 

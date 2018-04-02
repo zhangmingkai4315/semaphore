@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/gorilla/context"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func authentication(w http.ResponseWriter, r *http.Request) {

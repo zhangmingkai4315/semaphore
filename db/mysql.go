@@ -3,8 +3,8 @@ package db
 import (
 	"database/sql"
 
-	"github.com/ansible-semaphore/semaphore/util"
 	_ "github.com/go-sql-driver/mysql" // imports mysql driver
+	"github.com/zhangmingkai4315/semaphore/util"
 	"gopkg.in/gorp.v1"
 )
 

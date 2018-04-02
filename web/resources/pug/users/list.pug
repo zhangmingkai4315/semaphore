@@ -4,11 +4,11 @@
 
 	table.table.table-hover
 		thead: tr
-			th Name
-			th Username
-			th Email
-			th Alert
-			th Admin
+			th 姓名
+			th 用户名
+			th 邮件
+			th 告警
+			th 管理员
 			th External
 		tr(ng-repeat="u in users" ng-class="{ info: u.id == user.id }" ui-sref="users.user({ user_id: u.id })" style="cursor: pointer;")
 			td {{ u.name }}
@@ -18,4 +18,4 @@
 			td {{ u.admin }}
 			td {{ u.external }}
 
-	p(ng-show="users.length == 0") No Users
+	p(ng-show="users.length == 0") 没有用户

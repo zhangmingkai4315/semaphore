@@ -4,11 +4,11 @@ import (
 	"database/sql"
 	"net/http"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
 	"github.com/masterminds/squirrel"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func ProjectMiddleware(w http.ResponseWriter, r *http.Request) {

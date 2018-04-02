@@ -1,26 +1,26 @@
 .modal-header
-	h4.modal-title Task Log
+	h4.modal-title 任务日志
 .modal-body
 	dl.dl-horizontal
-		dt Status
+		dt 状态
 		dd {{ task.status }}
-		dt User
+		dt 用户
 		dd {{ task.user_name }}
-		dt Started
+		dt 开始
 		dd {{ task.startFormatted }}
-		dt Ended
+		dt 结束
 		dd {{ task.endFormatted }}
-		dt Created
+		dt 已创建
 		dd {{ task.createdFormatted }}
-		dt Permalink
+		dt 链接
 		dd 
-			a(href="{{ task.URL }}") Output
-		dt Raw output
+			a(href="{{ task.URL }}") 输出
+		dt 原始输出
 		dd: input(type="checkbox" ng-model="raw" title="show logs unbesmirched")
 
 	textarea.scroll(readonly, scroll-glue) {{ output_formatted }}
 
 .modal-footer
-	button.btn.btn-default.pull-left(ng-click="$dismiss()") Dismiss
-	button.btn.btn-danger(ng-click="remove()") delete
+	button.btn.btn-default.pull-left(ng-click="$dismiss()") 关闭
+	button.btn.btn-danger(ng-click="remove()") 删除
 	//- button.btn.btn-success(ng-click="restart(task)") Re-Run

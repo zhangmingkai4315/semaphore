@@ -4,21 +4,23 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/ansible-semaphore/semaphore/api/projects"
-	"github.com/ansible-semaphore/semaphore/api/sockets"
-	"github.com/ansible-semaphore/semaphore/api/tasks"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gobuffalo/packr"
 	"github.com/gorilla/mux"
 	"github.com/russross/blackfriday"
+	"github.com/zhangmingkai4315/semaphore/api/projects"
+	"github.com/zhangmingkai4315/semaphore/api/sockets"
+	"github.com/zhangmingkai4315/semaphore/api/tasks"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 var publicAssets = packr.NewBox("../web/public")
 
 // Declare all routes
 func Route() mulekick.Router {
-	r := mulekick.New(mux.NewRouter(), mulekick.CorsMiddleware)
+	m := mux.NewRouter()
+	r := mulekick.New(m, mulekick.CorsMiddleware)
+
 	r.NotFoundHandler = http.HandlerFunc(servePublic)
 
 	r.Get("/api/ping", mulekick.PongHandler)
@@ -132,7 +134,7 @@ func servePublic(w http.ResponseWriter, r *http.Request) {
 	path = strings.Replace(path, "/public/", "", 1)
 	split := strings.Split(path, ".")
 	suffix := split[len(split)-1]
-
+	// fmt.Println(path)
 	res, err := publicAssets.MustBytes(path)
 	if err != nil {
 		mulekick.NotFoundHandler(w, r)

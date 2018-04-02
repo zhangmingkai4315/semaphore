@@ -1,16 +1,16 @@
-h3 Task Templates
-	button.btn.btn-success.btn-xs.pull-right(ng-click="add()" style="margin-left: 5px;") New Template
-	button.btn.btn-default.btn-xs.pull-right(ng-if="allShown && hasHiddenTemplates()" ng-click="hideHidden()") Hide Hidden
-	button.btn.btn-default.btn-xs.pull-right(ng-if="!allShown && hasHiddenTemplates()" ng-click="showAll()") Show Hidden
+h3 任务模板
+	button.btn.btn-success.btn-xs.pull-right(ng-click="add()" style="margin-left: 5px;") 新建模板
+	button.btn.btn-default.btn-xs.pull-right(ng-if="allShown && hasHiddenTemplates()" ng-click="hideHidden()") 隐藏项目
+	button.btn.btn-default.btn-xs.pull-right(ng-if="!allShown && hasHiddenTemplates()" ng-click="showAll()") 展示隐藏内容
 
 table.table.table-hover
 	thead: tr
-		th Alias
+		th 名称
 		th Playbook
-		th SSH Key
-		th Inventory
-		th Environment
-		th Repository
+		th SSH密钥
+		th 执行主机
+		th 环境
+		th 仓库
 		th &nbsp;
 	tbody: tr(ng-repeat="tpl in templates" ng-click="update(tpl)" style="cursor: pointer;" ng-if="!tpl.hidden || allShown")
 		td {{ tpl.alias }}
@@ -20,7 +20,7 @@ table.table.table-hover
 		td {{ environmentAssoc[tpl.environment_id].name }}
 		td {{ reposAssoc[tpl.repository_id].name }}
 		td: .pull-right
-			button.btn.btn-default.btn-xs(ng-if="!tpl.hidden" ng-click="hideTemplate(tpl); $event.stopPropagation();") hide
-			button.btn.btn-default.btn-xs(ng-if="tpl.hidden" ng-click="showTemplate(tpl); $event.stopPropagation();") show
-			button.btn.btn-info.btn-xs(ng-click="copy(tpl); $event.stopPropagation();" style="margin-left: 5px;") copy
-			button.btn.btn-success.btn-xs(ng-click="run(tpl); $event.stopPropagation();" style="margin-left: 5px;") run
+			button.btn.btn-default.btn-xs(ng-if="!tpl.hidden" ng-click="hideTemplate(tpl); $event.stopPropagation();") 隐藏
+			button.btn.btn-default.btn-xs(ng-if="tpl.hidden" ng-click="showTemplate(tpl); $event.stopPropagation();") 展示
+			button.btn.btn-info.btn-xs(ng-click="copy(tpl); $event.stopPropagation();" style="margin-left: 5px;") 复制
+			button.btn.btn-success.btn-xs(ng-click="run(tpl); $event.stopPropagation();" style="margin-left: 5px;") 运行

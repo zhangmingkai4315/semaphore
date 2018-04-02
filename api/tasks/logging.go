@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/api/sockets"
-	"github.com/ansible-semaphore/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/api/sockets"
+	"github.com/zhangmingkai4315/semaphore/db"
 )
 
 func (t *task) log(msg string) {

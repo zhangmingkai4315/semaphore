@@ -6,11 +6,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
 	"github.com/masterminds/squirrel"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func clearRepositoryCache(repository db.Repository) error {
@@ -55,12 +55,12 @@ func GetRepositories(w http.ResponseWriter, r *http.Request) {
 	}
 
 	q := squirrel.Select("pr.id",
-			"pr.name",
-			"pr.project_id",
-			"pr.git_url",
-			"pr.ssh_key_id",
-			"pr.removed").
-			From("project__repository pr")
+		"pr.name",
+		"pr.project_id",
+		"pr.git_url",
+		"pr.ssh_key_id",
+		"pr.removed").
+		From("project__repository pr")
 
 	switch sort {
 	case "name", "git_url":

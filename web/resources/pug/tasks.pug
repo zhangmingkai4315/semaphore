@@ -1,12 +1,12 @@
-h1(ng-if="tasks.tasks.length") Tasks
+h1(ng-if="tasks.tasks.length") 任务管理
 	small(ng-if="status.length > 0" ng-bind="status")
 
 table.table.table-hover(ng-if="tasks.tasks.length")
 	thead
 		tr
-			th Job Name
-			th Play File
-			th Status
+			th Job名称
+			th Play文件
+			th 状态
 			th &nbsp;
 	tbody
 		tr(ng-repeat="task in tasks.tasks")
@@ -21,17 +21,17 @@ table.table.table-hover(ng-if="tasks.tasks.length")
 				.btn-group.pull-right
 					button.btn.btn-default.btn-xs(ng-click="openOutput(task)" ng-if="task.data.status != 'Queued'")
 						i.fa.fa-fw.fa-file-code-o
-						|  See Output
+						|  查看输出
 					button.btn.btn-danger.btn-xs(ng-click="removeTask(task)" ng-if="task.data.status != 'Running'")
 						i.fa.fa-fw.fa-times
-						|  Remove Task
+						|  移除任务
 
 #taskOutput.modal.fade
 	.modal-dialog.modal-lg
 		.modal-content
 			.modal-header
 				button(data-dismiss="modal").close: span &times;
-				h4.modal-title Task Output
+				h4.modal-title 任务输出
 			.modal-body
 				pre: code {{ openTask.data.output }}
 

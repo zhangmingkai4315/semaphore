@@ -1,16 +1,16 @@
 .modal-header
-	h4.modal-title Create Task
+	h4.modal-title 创建任务
 .modal-body
 	form.form-horizontal
 		.form-group
 			.col-sm-6.col-sm-offset-4
-				p.help-block <i>Optional</i> parameters
+				p.help-block <i>可选</i> 参数
 		.form-group
-			label.control-label.col-sm-4 Playbook Override
+			label.control-label.col-sm-4 重载Playbook
 			.col-sm-6
 				input.form-control(type="text" placeholder="Enter playbook name to override template" ng-model="task.playbook")
 		.form-group
-			label.control-label.col-sm-4 Environment Override (*MUST* be valid JSON)
+			label.control-label.col-sm-4 重载环境变量 (*必须* 是JSON数据)
 			.col-sm-6
 				div(ui-ace="{mode: 'json', workerPath: '/public/js/ace/'}" class="form-control" style="height: 100px" ng-model="task.environment")
 		.form-group
@@ -19,6 +19,6 @@
 				| Debug (<code>-vvvv</code>)
 
 .modal-footer
-	button.btn.btn-default.pull-left(ng-click="$dismiss()") Dismiss
-	button.btn.btn-primary(ng-click="run(task, true)") Dry Run
-	button.btn.btn-success(ng-click="run(task)") Run!
+	button.btn.btn-default.pull-left(ng-click="$dismiss()") 关闭
+	button.btn.btn-primary(ng-click="run(task, true)") 运行(仅检查)
+	button.btn.btn-success(ng-click="run(task)") 运行

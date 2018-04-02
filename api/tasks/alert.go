@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 const emailTemplate = `Subject: Task '{{ .Alias }}' failed

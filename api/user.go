@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/db"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
+	"github.com/zhangmingkai4315/semaphore/db"
 )
 
 func getUser(w http.ResponseWriter, r *http.Request) {

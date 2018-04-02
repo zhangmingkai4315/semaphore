@@ -10,10 +10,10 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	sq "github.com/masterminds/squirrel"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/ldap.v2"
 )

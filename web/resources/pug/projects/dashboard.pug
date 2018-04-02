@@ -1,6 +1,6 @@
 .row
 	.col-sm-7
-		h3.no-top-margin Project activity
+		h3.no-top-margin 项目情况
 		ul.list-unstyled
 			li(ng-repeat="event in events")
 				strong: time(ng-bind="event.createdFormatted")
@@ -8,10 +8,10 @@
 				span(ng-bind="event.object_name")
 				span(ng-if="event.object_name.length > 0")  -&nbsp;
 				span {{ event.description }}
-		button.btn.btn-default.btn-s(ng-click="refreshEvents($lastEvents=false)") Show all events
+		button.btn.btn-default.btn-s(ng-click="refreshEvents($lastEvents=false)") 展示所有事件
 
 	.col-sm-5(style="border-left: 1px solid #EEE;")
-		h4.no-top-margin Task history
+		h4.no-top-margin 任务历史
 		ul.nav.nav-pills.nav-stacked.task-history-list
 			li(ng-repeat="task in tasks"): a(ng-click="openTask(task)" href="#")
 				h4.center-block(ng-if="task.tpl_alias.length > 0") {{ task.tpl_alias }}
@@ -24,8 +24,8 @@
 
 				br
 				span &nbsp;
-				span.pull-right {{ task.duration }} minutes
+				span.pull-right {{ task.duration }} 分钟
 				br
 				span &nbsp;
 				span.pull-right(ng-if="task.user_name") by {{ task.user_name }}
-		button.btn.btn-default.btn-s(ng-click="reload($lastTasks=false)") Show all tasks
+		button.btn.btn-default.btn-s(ng-click="reload($lastTasks=false)") 展示所有任务

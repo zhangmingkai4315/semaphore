@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/util"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 type taskPool struct {

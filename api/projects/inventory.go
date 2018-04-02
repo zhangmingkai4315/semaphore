@@ -4,14 +4,15 @@ import (
 	"database/sql"
 	"net/http"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
+	"os"
+	"path/filepath"
+	"strings"
+
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
 	"github.com/masterminds/squirrel"
-	"path/filepath"
-	"strings"
-	"os"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func InventoryMiddleware(w http.ResponseWriter, r *http.Request) {
@@ -52,7 +53,7 @@ func GetInventory(w http.ResponseWriter, r *http.Request) {
 	}
 
 	q := squirrel.Select("*").
-			From("project__inventory pi")
+		From("project__inventory pi")
 
 	switch sort {
 	case "name", "type":
@@ -60,7 +61,7 @@ func GetInventory(w http.ResponseWriter, r *http.Request) {
 			OrderBy("pi." + sort + " " + order)
 	default:
 		q = q.Where("pi.project_id=?", project.ID).
-		OrderBy("pi.name " + order)
+			OrderBy("pi.name " + order)
 	}
 
 	query, args, _ := q.ToSql()
@@ -114,13 +115,13 @@ func AddInventory(w http.ResponseWriter, r *http.Request) {
 	}
 
 	inv := db.Inventory{
-		ID: insertIDInt,
-		Name: inventory.Name,
+		ID:        insertIDInt,
+		Name:      inventory.Name,
 		ProjectID: project.ID,
 		Inventory: inventory.Inventory,
-		KeyID: inventory.KeyID,
-		SshKeyID: &inventory.SshKeyID,
-		Type: inventory.Type,
+		KeyID:     inventory.KeyID,
+		SshKeyID:  &inventory.SshKeyID,
+		Type:      inventory.Type,
 	}
 
 	mulekick.WriteJSON(w, http.StatusCreated, inv)

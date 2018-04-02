@@ -11,12 +11,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/api"
-	"github.com/ansible-semaphore/semaphore/api/sockets"
-	"github.com/ansible-semaphore/semaphore/api/tasks"
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/gorilla/handlers"
+	"github.com/zhangmingkai4315/semaphore/api"
+	"github.com/zhangmingkai4315/semaphore/api/sockets"
+	"github.com/zhangmingkai4315/semaphore/api/tasks"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -59,7 +59,6 @@ func main() {
 	go sockets.StartWS()
 	go checkUpdates()
 	go tasks.StartRunner()
-
 	var router http.Handler = api.Route()
 	router = handlers.ProxyHeaders(router)
 	http.Handle("/", router)
@@ -106,7 +105,7 @@ func doSetup() int {
 	if err != nil {
 		confDir = "/etc/semaphore"
 	}
-	fmt.Print(" > Config output directory (default "+confDir+"): ")
+	fmt.Print(" > Config output directory (default " + confDir + "): ")
 
 	var answer string
 	fmt.Scanln(&answer)

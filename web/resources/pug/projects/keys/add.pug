@@ -1,59 +1,59 @@
 .modal-header
 	h4.modal-title
-		span(ng-if="!key.id") Create Access Key
-		span(ng-if="key.id") Update Access Key
+		span(ng-if="!key.id") 创建访问密钥
+		span(ng-if="key.id") 更新访问密钥
 
 .modal-body
 	form.form-horizontal
 		.form-group
-			label.control-label.col-sm-4 Key Name
+			label.control-label.col-sm-4 密钥名称
 			.col-sm-6
 				input.form-control(type="text" placeholder="Name" ng-model="key.name")
 		.form-group
-			label.control-label.col-sm-4 Key Type
+			label.control-label.col-sm-4 密钥类型
 			.col-sm-6
 				select.form-control(ng-model="key.type")
-					option(value="") -- Please select type --
+					option(value="") -- 选择类型--
 					option(value="ssh") SSH Key
 					option(value="aws") AWS IAM credentials
 					option(value="gcloud") Google Cloud API Key
 					option(value="do") DigitalOcean API Key
 
 		.form-group(ng-if="key.type == 'ssh'")
-			label.control-label.col-sm-4 Public Key
+			label.control-label.col-sm-4 公钥
 			.col-sm-6
 				textarea.form-control(ng-model="key.key" rows="4")
-				p.help-text Public key is <strong>optional</strong> (unless you are using SSH certificates) however you should set it so you can identify your private key by its fingerprint. Private keys are not available for reading later from the UI.
+				p.help-text 公钥 <strong>可选项目</strong> (除非使用SSH认证)
 		.form-group(ng-if="key.type == 'ssh'")
-			label.control-label.col-sm-4 Private Key
+			label.control-label.col-sm-4 私钥
 			.col-sm-6
 				textarea.form-control(ng-if="!key.id" ng-model="key.secret" rows="10" placeholder="Insert private key")
 				textarea.form-control(ng-if="key.id" ng-model="key.secret" rows="10" placeholder="Omitted for security - set to override")
 
 		.form-group(ng-if="key.type == 'aws'")
-			label.control-label.col-sm-4 Access Key
+			label.control-label.col-sm-4 访问密钥
 			.col-sm-6
 				textarea.form-control(ng-model="key.key" rows="4")
 		.form-group(ng-if="key.type == 'aws'")
-			label.control-label.col-sm-4 Secret Key
+			label.control-label.col-sm-4 安全密钥
 			.col-sm-6
 				textarea.form-control(ng-model="key.secret" rows="10")
 
 		.form-group(ng-if="key.type == 'gcloud'")
-			label.control-label.col-sm-4 Service Key JSON
+			label.control-label.col-sm-4 服务密钥 JSON
 			.col-sm-6
 				textarea.form-control(ng-model="key.secret" rows="10")
 				p.help-text: a(href="https://support.google.com/cloud/answer/6158849?hl=en#serviceaccounts" target="_blank") https://support.google.com/cloud/answer/6158849
 				p.help-text Download as JSON & Paste contents here
 
 		.form-group(ng-if="key.type == 'do'")
-			label.control-label.col-sm-4 API Key
+			label.control-label.col-sm-4 API 密钥
 			.col-sm-6
 				input.form-control(type="text" ng-model="key.secret")
 
 .modal-footer
-	button.btn.btn-danger(ng-click="$close({ delete: true })") Delete
+	button.btn.btn-danger(ng-click="$close({ delete: true })") 删除
 	button.btn.btn-success(ng-click="$close({ key: key })")
-		span(ng-if="!key.id") Create
-		span(ng-if="key.id") Update
-	button.btn.btn-default.pull-left(ng-click="$dismiss()") Dismiss
+		span(ng-if="!key.id") 创建
+		span(ng-if="key.id") 更新
+	button.btn.btn-default.pull-left(ng-click="$dismiss()") 关闭

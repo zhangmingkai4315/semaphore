@@ -1,5 +1,5 @@
 .col-sm-4.col-sm-offset-4.login-page
-	h3.text-center SEMAPHORE
+	h3.text-center CNNIC-Ansible
 
 	form.form-horizontal
 		.form-group(ng-if="status.length > 0"): .col-sm-12: p.help-block.text-center(ng-bind="status")
@@ -10,4 +10,4 @@
 			input.text-center.form-control.input-lg(type="password" ng-model="user.password" placeholder="Password")
 
 		.form-group(style="margin-top: 25px"): .col-sm-12
-			button.btn.btn-primary.btn-block.btn-lg(ng-click="authenticate(user)") Sign In
+			button.btn.btn-primary.btn-block.btn-lg(ng-click="authenticate(user)") 登入

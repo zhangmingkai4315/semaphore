@@ -1,6 +1,7 @@
 package util
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io"
@@ -10,7 +11,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"time"
-	"context"
 
 	"github.com/google/go-github/github"
 )
@@ -64,7 +64,7 @@ func DoUpgrade(version string) error {
 		return err
 	}
 
-	fmt.Println("visit https://github.com/ansible-semaphore/semaphore/releases for the changelog")
+	fmt.Println("visit https://github.com/zhangmingkai4315/semaphore/releases for the changelog")
 	go func() {
 		time.Sleep(time.Second * 3)
 		os.Exit(0)

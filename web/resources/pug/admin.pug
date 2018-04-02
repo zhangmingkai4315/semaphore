@@ -4,31 +4,31 @@
 	.row
 		.col-sm-4
 			ul.list-group
-				li.list-group-item: a(href="https://github.com/ansible-semaphore/semaphore" target="_blank") GitHub
-				li.list-group-item: a(href="https://github.com/ansible-semaphore/semaphore/issues/new" target="_blank") Help (GH issues)
-				li.list-group-item: a(href="https://github.com/ansible-semaphore/semaphore/wiki" target="_blank") Wiki
-				li.list-group-item: a(href="" ng-click="checkUpdate()") Check for Update
-				li.list-group-item: a(href="https://ansible-semaphore.github.io/semaphore/" target="_blank") API Documentation
+				li.list-group-item: a(href="https://github.com/zhangmingkai4315/semaphore" target="_blank") GitHub链接
+				li.list-group-item: a(href="https://github.com/zhangmingkai4315/semaphore/issues/new" target="_blank") 帮助说明 (GH issues)
+				li.list-group-item: a(href="https://github.com/zhangmingkai4315/semaphore/wiki" target="_blank") Wiki
+				li.list-group-item: a(href="" ng-click="checkUpdate()") 检查升级
+				li.list-group-item: a(href="https://ansible-semaphore.github.io/semaphore/" target="_blank") API 文档
 		.col-sm-4
 			div(ng-if="upgrade.updateBody")
 				button.btn.btn-primary.btn-block(ng-click="doUpgrade()" ng-disabled="upgrade.config.cmdPath.length == 0") latest stable {{ upgrade.update.tag_name }}
 				p.text-center(ng-if="upgrade.config.cmdPath.length == 0")
-					a(href="https://github.com/ansible-semaphore/semaphore/wiki/Troubleshooting#upgrades-failing" target="_blank") Upgrading isn't possible!
+					a(href="https://github.com/zhangmingkai4315/semaphore/wiki/Troubleshooting#upgrades-failing" target="_blank") Upgrading isn't possible!
 					br
 					| You should fix this error or upgrade manually.
 				div(ng-bind-html="upgrade.updateBody")
 		.col-sm-4
 			dl
-				dt DB
+				dt 数据库信息
 				dd: code {{ upgrade.config.dbUser }}@{{ upgrade.config.dbHost }}/{{ upgrade.config.dbName }}
-				dt Playbook Path
+				dt Playbook路径
 				dd: code {{ upgrade.config.path }}
-				dt semaphore location
+				dt semaphore位置
 				dd
 					span(ng-if="upgrade.config.cmdPath.length == 0")
 						code semaphore
 						| &nbsp;not found in&nbsp;
 						code $PATH
 						| . Upgrading&nbsp;
-						a(href="https://github.com/ansible-semaphore/semaphore/wiki/Installation#install-instructions" target="_blank") will not work
+						a(href="https://github.com/zhangmingkai4315/semaphore/wiki/Installation#install-instructions" target="_blank") will not work
 					code(ng-if="upgrade.config.cmdPath.length > 0") {{ upgrade.config.cmdPath }}

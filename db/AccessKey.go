@@ -3,7 +3,7 @@ package db
 import (
 	"strconv"
 
-	"github.com/ansible-semaphore/semaphore/util"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 type AccessKey struct {

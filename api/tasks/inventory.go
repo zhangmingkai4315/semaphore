@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"strconv"
 
-	"github.com/ansible-semaphore/semaphore/util"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func (t *task) installInventory() error {

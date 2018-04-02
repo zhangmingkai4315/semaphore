@@ -13,8 +13,8 @@ RUN apk add --no-cache git ansible mysql-client curl openssh-client tini && \
     chown -R semaphore:0 /tmp/semaphore && \
     chown -R semaphore:0 /etc/semaphore
 
-COPY ./ /go/src/github.com/ansible-semaphore/semaphore
-WORKDIR /go/src/github.com/ansible-semaphore/semaphore
+COPY ./ /go/src/github.com/zhangmingkai4315/semaphore
+WORKDIR /go/src/github.com/zhangmingkai4315/semaphore
 
 RUN apk add --no-cache -U libc-dev go nodejs && \
   ./deployment/docker/prod/bin/install && \

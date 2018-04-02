@@ -1,9 +1,9 @@
-h3 Inventory
-	button.btn.btn-success.btn-xs.pull-right(ng-click="add()") Create Inventory
+h3 主机清单
+	button.btn.btn-success.btn-xs.pull-right(ng-click="add()") 创建主机清单
 
 table.table.table-hover
 	tbody: tr(ng-repeat="inv in inventory" ng-click="edit(inv)" ng-class="{ danger: inv.removed }" style="cursor: pointer;")
 		td
 			code {{ inv.type }}
 			| &nbsp; {{ inv.name }}
-			button.btn.btn-info.btn-xs.pull-right(ng-if="inv.type != 'file'" ng-click="editContent(inv); $event.stopPropagation();") edit inventory content
+			button.btn.btn-info.btn-xs.pull-right(ng-if="inv.type != 'file'" ng-click="editContent(inv); $event.stopPropagation();") 编辑清单内容

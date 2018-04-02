@@ -1,10 +1,10 @@
-h3 Repositories
-	button.btn.btn-success.btn-xs.pull-right(ng-click="add()") Create Repository
+h3 仓库选择
+	button.btn.btn-success.btn-xs.pull-right(ng-click="add()") 创建仓库
 
 table.table.table-hover
 	thead: tr
-		th Name
-		th Git URL
+		th 名称
+		th Git链接
 		th SSH Key
 	tbody: tr(ng-repeat="repo in repositories" ng-class="{ danger: repo.removed }" ng-click="update(repo)" style="cursor: pointer;")
 		td {{ repo.name }}

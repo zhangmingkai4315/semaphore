@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ansible-semaphore/semaphore/db"
-	"github.com/ansible-semaphore/semaphore/util"
 	"github.com/castawaylabs/mulekick"
 	"github.com/gorilla/context"
 	"github.com/masterminds/squirrel"
+	"github.com/zhangmingkai4315/semaphore/db"
+	"github.com/zhangmingkai4315/semaphore/util"
 )
 
 func TemplatesMiddleware(w http.ResponseWriter, r *http.Request) {
@@ -44,21 +44,21 @@ func GetTemplates(w http.ResponseWriter, r *http.Request) {
 	}
 
 	q := squirrel.Select("pt.id",
-			"pt.ssh_key_id",
-			"pt.project_id",
-			"pt.inventory_id",
-			"pt.repository_id",
-			"pt.environment_id",
-			"pt.alias",
-			"pt.playbook",
-			"pt.arguments",
-			"pt.override_args").
-			From("project__template pt")
+		"pt.ssh_key_id",
+		"pt.project_id",
+		"pt.inventory_id",
+		"pt.repository_id",
+		"pt.environment_id",
+		"pt.alias",
+		"pt.playbook",
+		"pt.arguments",
+		"pt.override_args").
+		From("project__template pt")
 
 	switch sort {
 	case "alias", "playbook":
 		q = q.Where("pt.project_id=?", project.ID).
-			OrderBy("pt."+ sort + " " + order)
+			OrderBy("pt." + sort + " " + order)
 	case "ssh_key":
 		q = q.LeftJoin("access_key ak ON (pt.ssh_key_id = ak.id)").
 			Where("pt.project_id=?", project.ID).
@@ -77,7 +77,7 @@ func GetTemplates(w http.ResponseWriter, r *http.Request) {
 			OrderBy("pr.name " + order)
 	default:
 		q = q.Where("pt.project_id=?", project.ID).
-		OrderBy("pt.alias " + order)
+			OrderBy("pt.alias " + order)
 	}
 
 	query, args, _ := q.ToSql()

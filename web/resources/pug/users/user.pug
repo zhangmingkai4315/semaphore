@@ -4,32 +4,32 @@
 	hr
 	form.form-horizontal
 		.form-group
-			label.control-label.col-sm-4 Name
+			label.control-label.col-sm-4 姓名
 			.col-sm-8: input.form-control(type="text" placeholder="Your name" ng-model="user.name")
 		.form-group
-			label.control-label.col-sm-4 Username
+			label.control-label.col-sm-4 用户名
 			.col-sm-8: input.form-control(type="text" placeholder="Username" ng-model="user.username" ng-readonly="user.external == true")
 		.form-group
-			label.control-label.col-sm-4 Email
+			label.control-label.col-sm-4 邮件
 			.col-sm-8: input.form-control(type="email" placeholder="Email address" ng-model="user.email")
 		.form-group
-			label.control-label.col-sm-4 Password
+			label.control-label.col-sm-4 密码
 			.col-sm-8: input.form-control(type="password" placeholder="Enter new password" ng-readonly="user.external == true" ng-model="user.password")
 		.form-group(ng-if="!is_self")
 			.col-sm-8.col-sm-offset-4: .checkbox: label
 				input(type="checkbox" title="User has admin privileges" ng-model="user.admin")
-				|  Admin user
+				|  管理员用户
 		.form-group
 			.col-sm-8.col-sm-offset-4: .checkbox: label
 				input(type="checkbox" title="Send email alerts about failed tasks" ng-model="user.alert")
-				|  Send alerts
+				|  发送告警
 		.form-group: .col-sm-8.col-sm-offset-4
-			button.btn.btn-success(ng-click="updateUser()") Update Profile
-			button.btn.btn-default(ng-if="$state.includes('users.user')" ui-sref="users.list") back
+			button.btn.btn-success(ng-click="updateUser()") 更新信息
+			button.btn.btn-default(ng-if="$state.includes('users.user')" ui-sref="users.list") 返回
 
 
 	hr(ng-if="!is_self")
 
 	.row(ng-if="!is_self")
 		.col-sm-8.col-sm-offset-4
-			button.btn.btn-danger(ng-click="deleteUser()") Delete user
+			button.btn.btn-danger(ng-click="deleteUser()") 删除用户

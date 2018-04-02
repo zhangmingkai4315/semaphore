@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ansible-semaphore/semaphore/db"
 	"github.com/gorilla/context"
 	"github.com/gorilla/websocket"
+	"github.com/zhangmingkai4315/semaphore/db"
 )
 
 var upgrader = websocket.Upgrader{
